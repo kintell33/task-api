@@ -1,5 +1,34 @@
 # HOW TO RUN?
 
+## USING DOCKER-COMPOSE
+In this case we create a multicontainer docker file (docker-compose) for easy run and test.
+
+### Run redis
+
+We dont need to build this image cause its directly build by the image definition in dockerhub
+
+```
+docker-compose up -d redis
+```
+
+### Build application
+
+First we need to build the image with the docker-compose file using this command
+
+```
+docker-compose build app
+```
+
+### Run the application
+
+Now we can run the application using this command
+
+```
+docker-compose up -d app
+```
+
+--------------------------------------------
+
 ## USING NPM
 
 ### First install all dependecies
@@ -12,6 +41,8 @@ npm ci
 ### Create environment file
 
 You have to create an environment file named `.env` using the `.env.dist` as an example, dont upload the variables in the original `.env` to the repository!
+
+> Important, if you dont have installed a REDIS SERVER use the docker-compose for testing
 
 ### Run the application
 
@@ -61,3 +92,4 @@ Dont forget the last property is the name of the tag
 ```
 docker run -d --name task-api -p 8001:8001 task-api:latest
 ```
+
